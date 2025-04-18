@@ -1,0 +1,40 @@
+.btnMenuToggle {
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 1rem;
+}
+
+.btnMenuToggle:hover,
+.btnMenuToggle:focus {
+    background-color: var(--clr-neutral-100);
+}
+
+.menuList {
+    padding: 1.2rem 0;
+    position: fixed;
+    z-index: 10;
+    width: 20rem;
+    border-radius: 1.2rem;
+    box-shadow: var(--shadow);
+    background-color: var(--clr-neutral-50);
+    overflow: hidden;
+    transform: translate(-100%);
+}
+
+.btnMenuList {
+    width: 100%;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    white-space: nowrap;
+}
+
+.btnMenuList:hover {
+    background-color: var(--clr-neutral-100);
+}
+
+.btnMenuList img {
+    max-width: 2.4rem;
+    filter: saturate(0);
+}

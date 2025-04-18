@@ -1,0 +1,32 @@
+.authPage {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.authPage :global(.imgContainer) {
+    display: grid;
+    place-items: center;
+    background-color: var(--clr-primary-100);
+}
+
+.authPageContainer {
+    margin: 0 auto;
+    padding: 4.8rem;
+}
+
+@media screen and (max-width: 900px) {
+    .authPage {
+        height: 100svh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.75fr 1fr;
+    }
+
+    .authPage :global(.imgContainer) {
+        padding: 0;
+    }
+
+    .authPage :global(.imgContainer) img {
+    }
+}

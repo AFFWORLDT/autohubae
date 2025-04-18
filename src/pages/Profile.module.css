@@ -1,0 +1,93 @@
+.profile {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.4rem;
+}
+
+.profile .profileContainer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 4rem;
+}
+
+.profile .profileContainer form {
+    padding: 0 1.2rem;
+}
+
+.profileTabs {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.profileTabs button {
+    height: fit-content;
+    padding: 1.2rem 2rem;
+    border-radius: 0.8rem;
+}
+
+.profileTabs button.activeProfileTab {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-primary-300);
+}
+
+.profileDetails {
+    display: grid;
+    justify-items: center;
+}
+
+.avatar {
+    margin-top: 1rem;
+    width: auto;
+    height: 10rem;
+}
+
+.profileDetails h3 {
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.profileDetails ul {
+    width: 100%;
+    margin-top: 0.8rem;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+}
+
+.profileDetails ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profileDetails ul li p {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 600;
+    margin: 0;
+}
+
+.profileDetails ul li > span {
+    text-align: right;
+}
+
+.profileDetails ul img {
+    width: 2rem;
+    height: 2rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .profileDetails {
+        grid-row: 1;
+    }
+
+    .profileDetails ul {
+        max-width: 40rem;
+    }
+}

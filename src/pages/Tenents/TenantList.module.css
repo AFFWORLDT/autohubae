@@ -1,0 +1,144 @@
+/* Container Layout */
+.container {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+  
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #1e293b;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Button Styles */
+  .addButton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 4px 6px -1px rgba(59, 130, 246, 0.2),
+      0 2px 4px -1px rgba(59, 130, 246, 0.1);
+  }
+  
+  .addButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 12px -1px rgba(59, 130, 246, 0.25),
+      0 4px 6px -1px rgba(59, 130, 246, 0.15);
+  }
+  
+  .tenantsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .tenantCard {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .editButton {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .editButton:hover {
+    background: #0056b3;
+  }
+  
+  .searchContainer {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    margin-right: 1rem;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 8px 8px 8px 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .searchInput:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 300px);
+    width: 100%;
+  }
+  
+  .loadingMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: transparent;
+  }
+  
+  .noData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 300px);
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border: 2px dashed #e5e7eb;
+  }
+  
+  .noData p {
+    color: #6b7280;
+    font-size: 1.6rem;
+  }
+  
+ 

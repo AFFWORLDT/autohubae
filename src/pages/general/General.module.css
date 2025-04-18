@@ -1,0 +1,27 @@
+.generalContainer {
+    display: grid;
+    gap: 3.2rem;
+}
+
+.generalList {
+    display: grid;
+    gap: 2rem;
+}
+
+.generalList li:first-of-type {
+    text-transform: uppercase;
+    background-color: var(--clr-primary-100);
+    padding: 1rem 2rem;
+    color: var(--clr-neutral-300);
+    font-weight: 500;
+}
+
+.generalList li a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.generalList li img {
+    height: 2.4rem;
+}

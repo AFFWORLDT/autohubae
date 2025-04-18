@@ -1,0 +1,366 @@
+/* Shadcn UI inspired styling */
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(var(--background, 0 0% 100%));
+}
+
+.boardContainer {
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  min-height: 0;
+  background-color: hsl(var(--background, 0 0% 100%));
+}
+
+/* Stage Column Styles */
+.stageColumn {
+  background-color: hsl(var(--card, 0 0% 100%));
+  border-radius: 0.75rem;
+  min-width: 400px;
+  max-width: 400px;
+  height: fit-content;
+  max-height: calc(100vh - 160px);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid hsl(var(--border, 220 13% 91%));
+  transition: box-shadow 200ms, transform 200ms;
+}
+
+.stageHeader {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(var(--border, 220 13% 91%));
+}
+
+.stageTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.leadCount {
+  background-color: hsl(var(--muted, 210 40% 96.1%));
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground, 215 16% 47%));
+}
+
+.leadList {
+  padding: 1rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dragOver {
+  background-color: hsl(var(--accent, 210 40% 96.1%));
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* Lead Card Styles */
+.leadCard {
+  background-color: hsl(var(--card, 0 0% 100%));
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid hsl(var(--border, 220 13% 91%));
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: grab;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.leadCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-color: var(--stage-color, hsl(var(--border, 220 13% 91%)));
+}
+
+.dragging {
+  opacity: 0.7;
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  outline: 2px solid var(--stage-color, hsl(var(--primary, 221.2 83.2% 53.3%)));
+  outline-offset: 2px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: var(--stage-color, hsl(var(--primary, 221.2 83.2% 53.3%)));
+  color: hsl(var(--primary-foreground, 0 0% 100%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.headerInfo {
+  flex-grow: 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.leadName {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: hsl(var(--foreground, 222.2 84% 4.9%));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+  letter-spacing: -0.01em;
+}
+
+.clientType {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground, 215 16% 47%));
+  margin-top: 0.25rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(var(--foreground, 222.2 84% 4.9%));
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoRow svg {
+  color: hsl(var(--muted-foreground, 215 16% 47%));
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.budget, .phone, .email, .company {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.cardFooter {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid hsl(var(--border, 220 13% 91%));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(var(--muted-foreground, 215 16% 47%));
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.dropIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed hsl(var(--primary, 221.2 83.2% 53.3%));
+  border-radius: 0.75rem;
+  pointer-events: none;
+  z-index: 10;
+  background-color: hsla(var(--primary, 221.2 83.2% 53.3%) / 0.05);
+}
+
+/* Scrollbar Styles */
+.leadList::-webkit-scrollbar,
+.boardContainer::-webkit-scrollbar {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+.leadList::-webkit-scrollbar-track,
+.boardContainer::-webkit-scrollbar-track {
+  background: hsl(var(--muted, 210 40% 96.1%));
+  border-radius: 0.1875rem;
+}
+
+.leadList::-webkit-scrollbar-thumb,
+.boardContainer::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground, 215 16% 47%) / 0.4);
+  border-radius: 0.1875rem;
+}
+
+.leadList::-webkit-scrollbar-thumb:hover,
+.boardContainer::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground, 215 16% 47%) / 0.6);
+}
+
+.followUpOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: hsla(0, 0%, 0%, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.followUpModal {
+  position: relative;
+  background: hsl(var(--background, 0 0% 100%));
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border: 1px solid hsl(var(--border, 220 13% 91%));
+  animation: slideUp 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: hsl(var(--muted-foreground, 215 16% 47%));
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition: all 150ms;
+}
+
+.closeButton:hover {
+  background: hsl(var(--muted, 210 40% 96.1%));
+  color: hsl(var(--foreground, 222.2 84% 4.9%));
+}
+
+.unknownStage {
+  background-color: hsl(var(--muted, 210 40% 96.1%) / 0.6);
+  border: 1px dashed hsl(var(--border, 220 13% 91%));
+}
+
+.unknownStage .stageHeader {
+  opacity: 0.9;
+}
+
+.followUpButton {
+  position: absolute;
+  background-color: var(--stage-color, hsl(var(--primary, 221.2 83.2% 53.3%)));
+  color: hsl(var(--primary-foreground, 0 0% 100%));
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms;
+  top: 0.5rem;
+  right: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.followUpButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.followUpButton:active {
+  transform: translateY(0);
+}
+
+.topLoader,
+.bottomLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: transparent;
+  width: 100%;
+}
+
+.topLoader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.bottomLoader {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.paginationWrapper {
+  position: sticky;
+  bottom: 0;
+  background-color: hsl(var(--background, 0 0% 100%));
+  padding: 1rem;
+  border-top: 1px solid hsl(var(--border, 220 13% 91%));
+  z-index: 5;
+}

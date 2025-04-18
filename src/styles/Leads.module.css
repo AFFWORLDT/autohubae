@@ -1,0 +1,231 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.6rem;
+}
+
+.followUps {
+    grid-column: span 6;
+}
+
+.leadLogs {
+    grid-column: span 6;
+}
+
+.notes {
+    grid-column: span 12;
+}
+
+.messageWrapper .messageTitle {
+    color: #3a82ff;
+    text-decoration: underline;
+}
+.messageWrapper {
+    position: relative;
+}
+
+.messageContent {
+    position: relative;
+    cursor: pointer;
+}
+
+.messagePopover {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    z-index: 10;
+    width: 300px;
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 12px;
+}
+
+.messageContent:hover .messagePopover {
+    display: block;
+}
+
+.leads {
+    margin-top: 2rem;
+    display: grid;
+    gap: 4rem;
+}
+
+.leadDetails {
+    display: grid;
+    gap: 2.8rem;
+}
+
+.leadItem {
+    padding: 1.2rem;
+    border-radius: 2.4rem;
+    transition: 0.3s var(--timing-function);
+    position: relative;
+    background: white;
+    /* Create padding space for the gradient border */
+    padding: 1.5rem;
+}
+
+/* Create gradient border effect using pseudo-element */
+.leadItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 2.4rem;
+    padding: 2px; /* Border thickness */
+    background: linear-gradient(45deg, #ffd700, #ffa500, #daa520, #ffd700);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.leadItem:hover {
+    transform: translateY(-2px);
+}
+
+.leadDetails .leadItem:hover {
+    box-shadow: none;
+}
+
+.leadContent {
+    padding: 1rem 0;
+    display: grid;
+    gap: 2rem;
+}
+
+.leadTop {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--clr-neutral-100);
+}
+
+.leadTop h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.leadTop span {
+    margin-left: auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--clr-neutral-300);
+    flex-shrink: 0;
+}
+
+.leadContent ul {
+    margin-top: 1rem;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0;
+}
+
+.leadDetails .leadContent ul {
+    cursor: unset;
+}
+
+.leadContent ul li {
+    display: flex;
+    gap: 2rem;
+}
+
+.leadContent ul li > span:first-child {
+    color: var(--clr-neutral-300);
+    white-space: nowrap;
+}
+
+.leadContent ul li > span:last-child {
+    font-weight: 500;
+}
+
+.btnsLeadOperations {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.btnsLeadOperations > button {
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--clr-neutral-300);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btnsLeadOperations > button:disabled {
+    background-color: unset;
+}
+
+button.btnDeleteLead {
+    color: #cb1919;
+    border-color: #cb1919;
+}
+
+.btnChooseAgent img {
+    width: 2rem;
+    position: relative;
+    top: -2px;
+    left: -10px;
+}
+
+@media screen and (max-width: 760px) {
+    .leads {
+        gap: 6.4rem;
+    }
+
+    .leadTop {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .leadContent ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .leadItem {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .followUps,
+    .leadLogs {
+        grid-column: span 12; /* Full width on mobile */
+    }
+
+    .notes {
+        grid-column: span 12;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .leadContent ul {
+        grid-template-columns: 1fr;
+    }
+    .followUps,
+    .leadLogs {
+        grid-column: span 12; /* Full width on mobile */
+    }
+
+    .notes {
+        grid-column: span 12;
+    }
+}

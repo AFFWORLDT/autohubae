@@ -1,0 +1,59 @@
+/* MultiSelectAction.module.css */
+.tagPropertiesContainer {
+    min-height: "200px";
+    display: "flex";
+    flex-direction: "column";
+    align-items: "center";
+    min-width: "300px";
+}
+.actionButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Default button style */
+.btn {
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #ccc;
+}
+
+/* Hover state */
+.btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 7px 13px;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .actionButtonContainer {
+        padding: 0.5rem;
+    }
+    .container {
+        gap: 0.5rem;
+    }
+}

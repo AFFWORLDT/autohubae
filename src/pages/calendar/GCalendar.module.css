@@ -1,0 +1,819 @@
+.calendarContainer {
+    margin-top: 2rem;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 12px;
+  }
+  
+  .calendarControls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .calendarControls h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    min-width: 200px;
+  }
+  
+  .calendarControls button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #f8f9fa;
+    color: #1a1a1a;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .calendarControls button:hover {
+    background: #e9ecef;
+    transform: scale(1.05);
+  }
+  
+  .viewControls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .viewSelect {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .viewSelect:hover {
+    border-color: #4d94ff;
+  }
+  
+  .todayButton {
+    padding: 8px 20px;
+    background: #4d94ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .todayButton:hover {
+    background: #357abd;
+    transform: translateY(-1px);
+  }
+  
+  .calendar {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+  }
+  
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .weekday {
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: #4d94ff;
+    font-size: 14px;
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #e9ecef;
+  }
+  
+  .day {
+    background: white;
+    min-height: 120px;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .day:hover {
+    background: #f8f9fa;
+    transform: scale(1.02);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .today {
+    background: #f0f7ff !important;
+    border: 2px solid #4d94ff;
+  }
+  
+  .dayNumber {
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 16px;
+  }
+  
+  .eventDots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  
+  .eventDot {
+    width: 8px;
+    height: 8px;
+    background: #4d94ff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+  }
+  
+  .eventDot:hover {
+    transform: scale(1.2);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+  }
+  
+  .modalContent {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .modalContent h3 {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    color: #1a1a1a;
+  }
+  
+  .modalContent form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .modalContent input,
+  .modalContent textarea,
+  .modalContent select {
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+  
+  .modalContent input:focus,
+  .modalContent textarea:focus,
+  .modalContent select:focus {
+    border-color: #4d94ff;
+    outline: none;
+  }
+  
+  .modalButtons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+  
+  .modalButtons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .modalButtons button[type="submit"] {
+    background: #4d94ff;
+    color: white;
+  }
+  
+  .modalButtons button[type="submit"]:hover {
+    background: #357abd;
+    transform: translateY(-1px);
+  }
+  
+  .modalButtons button[type="button"] {
+    background: #f0f0f0;
+    color: #1a1a1a;
+  }
+  
+  .modalButtons button[type="button"]:hover {
+    background: #e0e0e0;
+  }
+  
+  .eventList {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+  
+  .eventList h3 {
+    margin: 0 0 16px 0;
+    color: #1a1a1a;
+    font-size: 18px;
+  }
+  
+  .eventItem {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+  }
+  
+  .eventItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .eventInfo h4 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 16px;
+  }
+  
+  .eventInfo p {
+    margin: 4px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .eventActions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .eventActions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .eventActions button:first-child {
+    background: #4d94ff;
+    color: white;
+  }
+  
+  .eventActions button:first-child:hover {
+    background: #357abd;
+  }
+  
+  .eventActions button:last-child {
+    background: #ff4d4d;
+    color: white;
+  }
+  
+  .eventActions button:last-child:hover {
+    background: #e60000;
+  }
+  
+  .recurringIndicator {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  
+  .colorPicker {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .reminderBadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ea4335;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  /* Drag and drop styles */
+  .draggingEvent {
+    opacity: 0.5;
+  }
+  
+  .dropTarget {
+    background: rgba(0,0,0,0.05);
+  }
+  
+  /* Improved calendar grid */
+  .calendar {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .weekdays {
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .day {
+    transition: all 0.2s ease;
+    min-height: 120px;
+  }
+  
+  .day:hover {
+    background: #f8f9fa;
+    transform: scale(1.02);
+    z-index: 1;
+  }
+  
+  /* Timeline indicator */
+  .timeIndicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ea4335;
+    z-index: 2;
+  }
+  
+  .timeIndicatorDot {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    background: #ea4335;
+    border-radius: 50%;
+  }
+  
+  .viewControls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .viewSelect {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: white;
+  }
+  
+
+  .weekDay {
+    background: white;
+    min-height: 200px;
+    padding: 10px;
+  }
+  
+  .dayHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+
+  
+  .dayView {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .dayViewHeader {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .dayEvent {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+
+
+  .weekView, .dayView {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    height: 800px;
+    overflow-y: auto;
+  }
+  
+  .weekHeader, .dayViewHeader {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 2;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .timeGutter {
+    width: 60px;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .dayColumn {
+    flex: 1;
+    position: relative;
+    min-width: 120px;
+  }
+  
+  .dayLabel {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .dayName {
+    font-size: 0.9em;
+    color: #70757a;
+  }
+  
+  .dayNumber {
+    font-size: 1.5em;
+    margin-top: 4px;
+  }
+  
+  .dayNumber.today {
+    background: #1a73e8;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px auto 0;
+  }
+  
+  .weekGrid, .dayGrid {
+    display: flex;
+    position: relative;
+  }
+  
+  .timeSlot {
+    height: 60px;
+    padding: 0 8px;
+    text-align: right;
+    color: #70757a;
+    font-size: 0.8em;
+  }
+  
+
+  
+  .weekEvent, .dayEvent {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    background: #4285f4;
+    color: white;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 0.9em;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .dayContent {
+    flex: 1;
+    position: relative;
+  }
+
+
+  .weekGrid {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .timeGutter {
+    width: 60px;
+    flex-shrink: 0;
+    border-right: 1px solid #e0e0e0;
+    background: white;
+  }
+  
+  .dayColumns {
+    display: flex;
+    flex: 1;
+  }
+  
+  .dayColumn {
+    flex: 1;
+    position: relative;
+    min-width: 150px;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .dayColumn:last-child {
+    border-right: none;
+  }
+  
+  .timeSlot {
+    height: 60px;
+    padding: 0 8px;
+    text-align: right;
+    color: #70757a;
+    font-size: 0.8em;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .timeCell {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+  
+
+  /* Add these new styles for better month weeks display */
+  .monthWeeks {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #e0e0e0;
+  }
+  
+  .weekRow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: white;
+    min-height: 120px;
+  }
+  
+  .dayLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    background: #f8f9fa;
+  }
+  
+  .dayName {
+    font-size: 0.9em;
+    color: #70757a;
+    font-weight: 500;
+  }
+  
+  .dayNumber {
+    font-size: 1.2em;
+    margin-top: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dayNumber.today {
+    background: #1a73e8;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .eventContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .eventTime {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+  
+  .eventTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .agentSelectorWrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .agentSelectorButton {
+    width: 100%;
+    padding: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .agentSelectorButton:hover {
+    background: #e9ecef;
+  }
+  
+  .buttonIcon {
+    font-size: 1.2em;
+  }
+  
+  .agentSelectorModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .agentSelectorContent {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modalHeader {
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .modalHeader h3 {
+    margin: 0 0 15px 0;
+    color: #212529;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .agentList {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+  }
+  
+  .agentCard {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    gap: 12px;
+  }
+  
+  .agentCard:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+  
+  .agentCard.selected {
+    background: #e3f2fd;
+    border-color: #90caf9;
+  }
+  
+  .agentAvatar img {
+    width: 40px;
+    height: 40px;
+    background: #4dabf7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .agentInfo {
+    flex: 1;
+  }
+  
+  .agentName {
+    font-weight: 500;
+    color: #212529;
+  }
+  
+  .checkmark {
+    color: #2196f3;
+    font-weight: bold;
+  }
+  
+  .modalFooter {
+    padding: 20px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .doneButton {
+    padding: 12px 24px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  
+  .doneButton:hover {
+    background: #1976d2;
+  }
+  .locationField {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .locationField input {
+    flex: 1;
+  }
+  
+  .locationField button {
+    padding: 8px;
+    background: #4d94ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .locationField button:hover {
+    background: #357abd;
+  }
+  

@@ -1,0 +1,112 @@
+/* Base Breadcrumb Styles */
+.breadcrumb {
+    display: flex;
+    list-style: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.breadcrumbItem {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+
+
+.breadcrumbItem span {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumbItem span.highlight {
+    color: var(--breadcrumb-color, #0d6efd);
+}
+
+.breadcrumbItem span.grayText {
+    color: #6610f2;
+}
+
+.breadcrumbItem::after {
+    content: ">";
+    margin-left: 8px;
+    color: #6c757d;
+}
+
+.breadcrumbItem:last-child::after {
+    content: "";
+}
+
+/* Number Box Styling */
+.numberBox {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.highlightBox {
+    color: #000000;
+    border-color: #ced4da;
+    background-color: #f1f3f5;
+}
+
+.grayBox {
+    color: #ffffff;
+    border-color: #fffcfc;
+    background-color: #6610f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 8px 12px;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .breadcrumbItem {
+        font-size: 16px;
+        margin-right: 6px;
+    }
+
+    .numberBox {
+        width: 3.1rem;
+        height: 3.1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .breadcrumbItem {
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+
+    .breadcrumbItem::after {
+        content: none;
+    }
+
+    .numberBox {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}
